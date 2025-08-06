@@ -12,10 +12,10 @@ function agregarAmigo() {
     return;
   }
 
-  // Normalizo el nombre: primera letra mayúscula, resto minúsculas
+  // El nombre: primera letra mayúscula, resto minúsculas
   const nombreNormalizado = nombre.charAt(0).toUpperCase() + nombre.slice(1).toLowerCase();
 
-  // Verifico si ya existe en el array
+  // Verificar si ya existe en el array
   const yaExiste = amigos.includes(nombreNormalizado);
 
   if (yaExiste) {
@@ -29,7 +29,7 @@ function agregarAmigo() {
 }
 
 
-// Muestro amigos ingresados en la lista
+// Mostrar amigos ingresados en la lista
 function mostrarAmigos() {
   const listaAmigos = document.getElementById("listaAmigos");
   listaAmigos.innerHTML = "";
@@ -79,7 +79,7 @@ function editarAmigo(index) {
   }
 }
 
-// sorteo el amigo secreto y lo muestro en un alert y si no hay amigos otro alert con un mensaje.
+// Sorteo el amigo secreto y lo muestro en un alert y si no hay amigos otro alert con un mensaje.
 function sortearAmigo() {
   if (amigos.length < 2) {
     alert("Debe haber al menos 2 amigos para realizar el sorteo.");
@@ -102,14 +102,14 @@ function sortearAmigo() {
 function reiniciarJuego() {
   amigos = []; // Vacía la lista de amigos
 
-  // Limpia las listas del DOM
+  // Limpia las listas.
   document.getElementById("listaAmigos").innerHTML = "";
   document.getElementById("resultado").innerHTML = "";
 
-  // Reactiva el botón de sorteo
+  // Activa el botón de sorteo
   document.querySelector(".button-draw").disabled = false;
 
-  // Limpia el input
+  // Limpia el input.
   document.querySelector('#amigo').value = '';
 
   alert("¡El juego ha sido reiniciado!");
