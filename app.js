@@ -87,6 +87,8 @@ function eliminarAmigo(index) {
     mostrarAmigos();
     limpiarResultado();
 }
+  const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "#FF0000";
 
 // Sorteo el amigo secreto y lo muestro en un alert y si no hay amigos otro alert con un mensaje.
 function sortearAmigo() {
