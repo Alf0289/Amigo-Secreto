@@ -79,6 +79,15 @@ function editarAmigo(index) {
   }
 }
 
+/**
+ * Función para eliminar un amigo de la lista
+ */
+function eliminarAmigo(index) {
+    amigos.splice(index, 1);
+    mostrarAmigos();
+    limpiarResultado();
+}
+
 // Sorteo el amigo secreto y lo muestro en un alert y si no hay amigos otro alert con un mensaje.
 function sortearAmigo() {
   if (amigos.length < 2) {
