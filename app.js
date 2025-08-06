@@ -44,7 +44,7 @@ function mostrarAmigos() {
 
     // Botón editar solo con el ícono de lápiz y menos margen
     const btnEditar = document.createElement("button");
-    btnEditar.textContent = "✏️";
+    btnEditar.textContent = "✅";
     btnEditar.title = "Editar";
     btnEditar.style.marginRight = "4px"; // Menos espacio
     btnEditar.style.background = "none";
