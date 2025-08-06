@@ -30,7 +30,7 @@ JavaScript (JS).
 ## Cómo ejecutar el proyecto.
 
 1. Clona este repositorio o descarga los archivos.
-2. Abra el archivo index.htmlen su navegador.
+2. Abra el archivo index.html en su navegador.
 3. Ingresa los nombres de tus amigos en el input y presiona "Añadir".
 4. Haz clic en "Sortear amigo" para comenzar el sorteo.
 5. Sigue ordenando hasta que se hayan seleccionado todos los nombres.
