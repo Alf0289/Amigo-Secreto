@@ -79,49 +79,128 @@ function editarAmigo(index) {
   }
 }
 
-/**
- * Función para eliminar un amigo de la lista
- */
+// Función para eliminar un amigo de la lista
 function eliminarAmigo(index) {
-    amigos.splice(index, 1);
-    mostrarAmigos();
-    limpiarResultado();
+    // Confirmar antes de eliminar
+    if (confirm(`¿Estás seguro que quieres eliminar a ${amigos[index]}?`)) {
+        amigos.splice(index, 1);
+        mostrarAmigos();
+        limpiarResultado();
+    }
 }
-  const btnEliminar = document.createElement("button");
-    btnEliminar.textContent = "#FF0000";
 
-// Sorteo el amigo secreto y lo muestro en un alert y si no hay amigos otro alert con un mensaje.
-function sortearAmigo() {
-  if (amigos.length < 2) {
-    alert("Debe haber al menos 2 amigos para realizar el sorteo.");
+// Mostrar amigos ingresados en la lista
+function mostrarAmigos() {
+  const listaAmigos = document.getElementById("listaAmigos");
+  listaAmigos.innerHTML = "";
+
+  if (amigos.length === 0) {
+    console.log("No hay nombres de amigos en la lista");
     return;
   }
 
-  const indiceAleatorio = Math.floor(Math.random() * amigos.length);
-  const amigoSorteado = amigos[indiceAleatorio];
+  amigos.forEach((amigo, index) => {
+    const li = document.createElement("li");
 
-  const nombreCapitalizado = amigoSorteado.charAt(0).toUpperCase() + amigoSorteado.slice(1).toLowerCase();
+    // Botón editar
+    const btnEditar = document.createElement("button");
+    btnEditar.textContent = "✅";
+    btnEditar.title = "Editar";
+    btnEditar.style.marginRight = "4px";
+    btnEditar.style.background = "none";
+    btnEditar.style.border = "none";
+    btnEditar.style.cursor = "pointer";
+    btnEditar.style.padding = "2px 4px";
+    btnEditar.onclick = function () {
+      editarAmigo(index);
+    };
 
-  const resultado = document.getElementById("resultado");
-  const li = document.createElement("li");
-  li.textContent = `🎊 ¡Felicitaciones! El amigo sorteado es: ${nombreCapitalizado}`;
-  resultado.appendChild(li);
+    // Botón eliminar
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "❌";
+    btnEliminar.title = "Eliminar";
+    btnEliminar.style.marginLeft = "4px";
+    btnEliminar.style.background = "none";
+    btnEliminar.style.border = "none";
+    btnEliminar.style.cursor = "pointer";
+    btnEliminar.style.padding = "2px 4px";
+    btnEliminar.onclick = function () {
+      eliminarAmigo(index);
+    };
 
-  document.querySelector(".button-draw").disabled = true;
+    const nombreCapitalizado = amigo.charAt(0).toUpperCase() + amigo.slice(1).toLowerCase();
+
+    li.appendChild(btnEditar);
+    li.appendChild(document.createTextNode(nombreCapitalizado));
+    li.appendChild(btnEliminar);
+
+    listaAmigos.appendChild(li);
+  });
 }
 
-function reiniciarJuego() {
-  amigos = []; // Vacía la lista de amigos
+// Función para eliminar un amigo de la lista
+function eliminarAmigo(index) {
+    if (confirm(`¿Estás seguro que quieres eliminar a ${amigos[index]}?`)) {
+        amigos.splice(index, 1);
+        mostrarAmigos();
+        limpiarResultado();
+    }
+}
 
-  // Limpia las listas.
-  document.getElementById("listaAmigos").innerHTML = "";
-  document.getElementById("resultado").innerHTML = "";
+// Mostrar amigos ingresados en la lista
+function mostrarAmigos() {
+  const listaAmigos = document.getElementById("listaAmigos");
+  listaAmigos.innerHTML = "";
 
-  // Activa el botón de sorteo
-  document.querySelector(".button-draw").disabled = false;
+  if (amigos.length === 0) {
+    console.log("No hay nombres de amigos en la lista");
+    return;
+  }
 
-  // Limpia el input.
-  document.querySelector('#amigo').value = '';
+  amigos.forEach((amigo, index) => {
+    const li = document.createElement("li");
 
-  alert("¡El juego ha sido reiniciado!");
+    // Botón editar
+    const btnEditar = document.createElement("button");
+    btnEditar.textContent = "✅";
+    btnEditar.title = "Editar";
+    btnEditar.style.marginRight = "4px";
+    btnEditar.style.background = "none";
+    btnEditar.style.border = "none";
+    btnEditar.style.cursor = "pointer";
+    btnEditar.style.padding = "2px 4px";
+    btnEditar.onclick = function () {
+      editarAmigo(index);
+    };
+
+    // Botón eliminar
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "❌";
+    btnEliminar.title = "Eliminar";
+    btnEliminar.style.marginLeft = "4px";
+    btnEliminar.style.background = "none";
+    btnEliminar.style.border = "none";
+    btnEliminar.style.cursor = "pointer";
+    btnEliminar.style.padding = "2px 4px";
+    btnEliminar.onclick = function () {
+      eliminarAmigo(index);
+    };
+
+    const nombreCapitalizado = amigo.charAt(0).toUpperCase() + amigo.slice(1).toLowerCase();
+
+    li.appendChild(btnEditar);
+    li.appendChild(document.createTextNode(nombreCapitalizado));
+    li.appendChild(btnEliminar);
+
+    listaAmigos.appendChild(li);
+  });
+}
+
+// Función para eliminar un amigo de la lista
+function eliminarAmigo(index) {
+    if (confirm(`¿Estás seguro que quieres eliminar a ${amigos[index]}?`)) {
+        amigos.splice(index, 1);
+        mostrarAmigos();
+        limpiarResultado();
+    }
 }
